@@ -27,10 +27,22 @@ void loop() {
   myPID_r.run();
   int lv_speed = gv_pid_speed_out_r;
   set_speed_r( lv_speed, m_forward );
-  
+  Serial.print("Rechts :");
+  Serial.print(gv_pid_speed_set_r);
+  Serial.print("; ");
+  Serial.print(gv_pid_speed_r);
+  Serial.print("; ");
+  Serial.println(gv_pid_speed_out_r);
+
   myPID_l.run();
   lv_speed = gv_pid_speed_out_l;
   set_speed_l( lv_speed, m_forward );
+  Serial.print("Links :");
+  Serial.print(gv_pid_speed_set_l);
+  Serial.print("; ");
+  Serial.print(gv_pid_speed_l);
+  Serial.print("; ");
+  Serial.println(gv_pid_speed_out_l);
 
 
   //  if (gv_do_chk_spd == true) {
