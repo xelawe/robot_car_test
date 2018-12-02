@@ -8,7 +8,7 @@ volatile unsigned long leftCount = 0;
 volatile unsigned long rightCount = 0;
 volatile unsigned long gv_leftCount = 0;
 volatile unsigned long gv_rightCount = 0;
-//volatile boolean gv_do_chk_spd;
+volatile boolean gv_do_chk_spd;
 
 
 
@@ -24,7 +24,7 @@ void check_speed() {
   leftCount = 0;
 
 
-  //gv_do_chk_spd = true;
+  gv_do_chk_spd = true;
 
 }
 
@@ -43,7 +43,7 @@ void init_enc() {
 
   pinMode(ENC_R, INPUT);
   pinMode(ENC_L, INPUT);
-  
+
   tick_spd_cnt.attach(1, check_speed);
 
   // initialize hardware interrupts

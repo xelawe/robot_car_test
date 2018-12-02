@@ -16,35 +16,46 @@ void setup() {
 
   init_enc();
 
-  gv_pid_speed_set_r = 30;
-  gv_pid_speed_set_l = 30;
+  init_pid();
+
+  gv_pid_speed_set_r = 20;
+  gv_pid_speed_set_l = 20;
 
 }
 
 
 void loop() {
 
-  myPID_r.run();
-  int lv_speed = gv_pid_speed_out_r;
-  set_speed_r( lv_speed, m_forward );
-  Serial.print("Rechts :");
-  Serial.print(gv_pid_speed_set_r);
-  Serial.print("; ");
-  Serial.print(gv_pid_speed_r);
-  Serial.print("; ");
-  Serial.println(gv_pid_speed_out_r);
+  if ( gv_do_chk_spd == true) {
 
-  myPID_l.run();
-  lv_speed = gv_pid_speed_out_l;
-  set_speed_l( lv_speed, m_forward );
-  Serial.print("Links :");
-  Serial.print(gv_pid_speed_set_l);
-  Serial.print("; ");
-  Serial.print(gv_pid_speed_l);
-  Serial.print("; ");
-  Serial.println(gv_pid_speed_out_l);
+    myPID_r.run();
+    int lv_speed = gv_pid_speed_out_r;
+    set_speed_r( lv_speed, m_forward );
+    Serial.print("Rechts :");
+    Serial.print(gv_pid_speed_set_r);
+    Serial.print("; ");
+    Serial.print(gv_pid_speed_r);
+    Serial.print("; ");
+    Serial.print(gv_pid_speed_out_r);
+    Serial.print("; ");
+    Serial.print(lv_speed);
+    Serial.println("");
 
+    myPID_l.run();
+    lv_speed = gv_pid_speed_out_l;
+    set_speed_l( lv_speed, m_forward );
+    Serial.print("Links :");
+    Serial.print(gv_pid_speed_set_l);
+    Serial.print("; ");
+    Serial.print(gv_pid_speed_l);
+    Serial.print("; ");
+    Serial.print(gv_pid_speed_out_l);
+    Serial.print("; ");
+    Serial.print(lv_speed);
+    Serial.println("");
 
+    gv_do_chk_spd = false;
+  }
   //  if (gv_do_chk_spd == true) {
   //    Serial.print("Rechts :");
   //    Serial.println(gv_rightCount);
