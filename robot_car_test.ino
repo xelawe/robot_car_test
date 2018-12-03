@@ -28,7 +28,8 @@ void loop() {
 
   if ( gv_do_chk_spd == true) {
 
-    myPID_r.run();
+    check_pid();
+
     int lv_speed = gv_pid_speed_out_r;
     set_speed_r( lv_speed, m_forward );
     Serial.print("Rechts :");
@@ -41,7 +42,7 @@ void loop() {
     Serial.print(lv_speed);
     Serial.println("");
 
-    myPID_l.run();
+
     lv_speed = gv_pid_speed_out_l;
     set_speed_l( lv_speed, m_forward );
     Serial.print("Links :");
