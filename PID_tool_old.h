@@ -4,10 +4,10 @@
 #define OUTPUT_MIN 0
 #define OUTPUT_MAX 32
 //#define KP .12
-#define KP .3
+#define KP 0.1
 //#define KI .0003
-#define KI .2
-#define KD 0.1
+#define KI 0
+#define KD 0
 
 double gv_pid_speed_r, gv_pid_speed_set_r, gv_pid_speed_out_r;
 double gv_pid_speed_l, gv_pid_speed_set_l, gv_pid_speed_out_l;

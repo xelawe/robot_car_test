@@ -18,44 +18,60 @@ void setup() {
 
   init_pid();
 
-  gv_pid_speed_set_r = 20;
-  gv_pid_speed_set_l = 20;
+  gv_pid_speed_set_r = 30;
+  gv_pid_speed_set_l = 30;
 
 }
 
 
 void loop() {
 
-  if ( gv_do_chk_spd == true) {
+  //  check_pid();
 
-    check_pid();
-
-    int lv_speed = gv_pid_speed_out_r;
-    set_speed_r( lv_speed, m_forward );
-    Serial.print("Rechts :");
-    Serial.print(gv_pid_speed_set_r);
-    Serial.print("; ");
+  if ( myPID_r.Compute()){
+           int lv_speed = gv_pid_speed_out_r;
+    set_speed_r( lv_speed, m_forward ); 
+        Serial.print(gv_pid_speed_set_r);
+    Serial.print(" ");
     Serial.print(gv_pid_speed_r);
-    Serial.print("; ");
+    Serial.print(" ");
     Serial.print(gv_pid_speed_out_r);
-    Serial.print("; ");
+    Serial.print(" ");
     Serial.print(lv_speed);
+  }
+
+  if ( gv_do_chk_spd == true) {
+    
+
+   // int lv_speed = gv_pid_speed_set_r + gv_pid_speed_out_r;
+//        int lv_speed = gv_pid_speed_out_r;
+//    set_speed_r( lv_speed, m_forward );
+//    //Serial.print("Rechts ");
+//    Serial.print(gv_pid_speed_set_r);
+//    Serial.print(" ");
+//    Serial.print(gv_pid_speed_r);
+//    Serial.print(" ");
+//    Serial.print(gv_pid_speed_out_r);
+//    Serial.print(" ");
+//    Serial.print(lv_speed);
+
+
+
+//    lv_speed = gv_pid_speed_out_l;
+  //  set_speed_l( lv_speed, m_forward );
+//    Serial.print("Links :");
+//    Serial.print(gv_pid_speed_set_l);
+//    Serial.print("; ");
+//    Serial.print(gv_pid_speed_l);
+//    Serial.print("; ");
+//    Serial.print(gv_pid_speed_out_l);
+//    Serial.print("; ");
+//    Serial.print(lv_speed);
+//    Serial.println("");
+
     Serial.println("");
 
-
-    lv_speed = gv_pid_speed_out_l;
-    set_speed_l( lv_speed, m_forward );
-    Serial.print("Links :");
-    Serial.print(gv_pid_speed_set_l);
-    Serial.print("; ");
-    Serial.print(gv_pid_speed_l);
-    Serial.print("; ");
-    Serial.print(gv_pid_speed_out_l);
-    Serial.print("; ");
-    Serial.print(lv_speed);
-    Serial.println("");
-
-    gv_do_chk_spd = false;
+    reset_enc();
   }
   //  if (gv_do_chk_spd == true) {
   //    Serial.print("Rechts :");

@@ -51,3 +51,10 @@ void init_enc() {
   attachInterrupt(ENC_L, leftEncoderEvent, FALLING);
 }
 
+void reset_enc(){
+    rightCount = 0;
+    leftCount = 0;
+    
+    gv_do_chk_spd = false;
+}
+
