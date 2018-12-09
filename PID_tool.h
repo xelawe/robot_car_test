@@ -5,7 +5,7 @@ double gv_pid_speed_l, gv_pid_speed_set_l, gv_pid_speed_out_l;
 
 //Specify the links and initial tuning parameters
 double Kp = 0.4;
-double Ki = 0.2;
+double Ki = 0.3;
 double Kd = 0;
 
 PID myPID_r(&gv_pid_speed_r, &gv_pid_speed_out_r, &gv_pid_speed_set_r, Kp, Ki, Kd, DIRECT);

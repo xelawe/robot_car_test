@@ -28,10 +28,10 @@ void loop() {
 
   //  check_pid();
 
-  if ( myPID_r.Compute()){
-           int lv_speed = gv_pid_speed_out_r;
-    set_speed_r( lv_speed, m_forward ); 
-        Serial.print(gv_pid_speed_set_r);
+  if ( myPID_r.Compute()) {
+    int lv_speed = gv_pid_speed_out_r;
+    set_speed_r( lv_speed, m_forward );
+    Serial.print(gv_pid_speed_set_r);
     Serial.print(" ");
     Serial.print(gv_pid_speed_r);
     Serial.print(" ");
@@ -41,33 +41,33 @@ void loop() {
   }
 
   if ( gv_do_chk_spd == true) {
-    
-
-   // int lv_speed = gv_pid_speed_set_r + gv_pid_speed_out_r;
-//        int lv_speed = gv_pid_speed_out_r;
-//    set_speed_r( lv_speed, m_forward );
-//    //Serial.print("Rechts ");
-//    Serial.print(gv_pid_speed_set_r);
-//    Serial.print(" ");
-//    Serial.print(gv_pid_speed_r);
-//    Serial.print(" ");
-//    Serial.print(gv_pid_speed_out_r);
-//    Serial.print(" ");
-//    Serial.print(lv_speed);
 
 
+    // int lv_speed = gv_pid_speed_set_r + gv_pid_speed_out_r;
+    //        int lv_speed = gv_pid_speed_out_r;
+    //    set_speed_r( lv_speed, m_forward );
+    //    //Serial.print("Rechts ");
+    //    Serial.print(gv_pid_speed_set_r);
+    //    Serial.print(" ");
+    //    Serial.print(gv_pid_speed_r);
+    //    Serial.print(" ");
+    //    Serial.print(gv_pid_speed_out_r);
+    //    Serial.print(" ");
+    //    Serial.print(lv_speed);
 
-//    lv_speed = gv_pid_speed_out_l;
-  //  set_speed_l( lv_speed, m_forward );
-//    Serial.print("Links :");
-//    Serial.print(gv_pid_speed_set_l);
-//    Serial.print("; ");
-//    Serial.print(gv_pid_speed_l);
-//    Serial.print("; ");
-//    Serial.print(gv_pid_speed_out_l);
-//    Serial.print("; ");
-//    Serial.print(lv_speed);
-//    Serial.println("");
+
+
+    //    lv_speed = gv_pid_speed_out_l;
+    //  set_speed_l( lv_speed, m_forward );
+    //    Serial.print("Links :");
+    //    Serial.print(gv_pid_speed_set_l);
+    //    Serial.print("; ");
+    //    Serial.print(gv_pid_speed_l);
+    //    Serial.print("; ");
+    //    Serial.print(gv_pid_speed_out_l);
+    //    Serial.print("; ");
+    //    Serial.print(lv_speed);
+    //    Serial.println("");
 
     Serial.println("");
 
